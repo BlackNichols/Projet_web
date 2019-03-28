@@ -1,4 +1,8 @@
-"use strict" 
+
+
+"use strict"
+
+
  
  // some vars  for try the code 
 var MINX = 20;
