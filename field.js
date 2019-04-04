@@ -33,5 +33,12 @@ class Field extends Object{
         Object.seal(this);
     }
 
-    checkPos(r,c){} //true if the cell is crossable
+    createFile(filename,field){
+        let content = JSON.stringify(field);
+        
+    }
+
+    checkPos(r,c){
+        return true; //TODO
+    } //true if the cell is crossable
 }
