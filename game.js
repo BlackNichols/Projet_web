@@ -1,4 +1,4 @@
-
+"use strict"
 class Game extends Object{
 
     constructor(){
@@ -10,6 +10,7 @@ class Game extends Object{
         this.MAXX = 800;this.MAXY = 800;
         this.bombTime = 4000;
         this.bombStrength = 1;
+        this.field = new Field(this.MAXX,this.MAXY,this.MAXY/20, this.MINX/20);
 
     }
 
@@ -21,8 +22,11 @@ class Game extends Object{
     //************************************************************************ */
 
     addPlayer(){
-        let player = Movement(30,30, this.MINX,this.MINY, this.MAXX, this.MAXY);
-        this.playerMvList.push(player);
+
+        let playerImg = new Image();
+        playerImg.src = "player.gif";
+        let player = new Player(30,30,playerImg, 5, this.field);
+        this.playersList.push(player);
     }
 
    

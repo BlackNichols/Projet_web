@@ -1,13 +1,13 @@
 "use strict"
 
 
-class Movement extends Object{
+class Player extends Object{
 
-   constructor(posx, posy, nbLives, plImage ){
+   constructor(posx, posy, nbLives, plImage, gameField){
        super();
        this.x = posx;
        this.y = posy;
-       this.field = Field();
+       this.field = gameField;
        this.move = 2;
        this.lives = nbLives;
        this.image = plImage;
@@ -15,28 +15,31 @@ class Movement extends Object{
 
 
    moveUp = function(){
-        if(this.field.checkPos(x, y - move)) y = y - move; 
+        if(this.field.checkPos(this.x, this.y - this.move)) this.y = this.y - this.move; 
     };
 
     //***************************************************************** */
 
     moveDown = function(){
-        if(this.field.checkPos(x, y + move)) y = y + move; 
+        if(this.field.checkPos(this.x, this.y + this.move)) this.y = this.y + this.move; 
     };
 
     //***************************************************************** */
 
     moveLeft = function(){
-        if(this.field.checkPos(x - move, y)) x = x - move; 
+        if(this.field.checkPos(this.x - this.move, this.y)) this.x = this.x - this.move; 
     };
 
     //***************************************************************** */
 
     moveRight = function(){
-        if(this.field.checkPos(x + move, y)) x = x + move; 
+        if(this.field.checkPos(this.x + this.move, this.y)) this.x = this.x + this.move; 
     };
 
     //***************************************************************** */
+    getCell(x,y){
+        
+    }
 
 
 }
