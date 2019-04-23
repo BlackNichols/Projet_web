@@ -7,4 +7,12 @@ class gameObject extends Object {
         this.y = objectY;
     }
 
+/***************************************************************** */
+/**
+ * returns a "String" with all cell's information
+ */
+    toString(){
+        return "IMAGE " + this.image.src + '\n'+ "X " + this.x + '\n' + "Y " + this.y;
+    }
+
 }

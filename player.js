@@ -42,6 +42,15 @@ class Player extends gameObject{
         
     }
 
+/***************************************************************** */
+/**
+ * returns a "String" with all cell's information
+ */
+    toString(){
+
+        return "PLAYER: \n" + super.toString() + '\n' + "LIVES: " + this.lives;
+        
+    }
 
 }
 

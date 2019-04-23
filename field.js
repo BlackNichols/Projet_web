@@ -40,7 +40,10 @@ class Field extends Object{
 /***************************************************************** */
 
     createFile(filename,field){
+        // const writeJsonFile = require('bit/global/write-json-file'); 
         let content = JSON.stringify(field);
+        // const jsonFile = filename; 
+        // writeJsonFile(jsonFile,content).catch(err => console.log(err)); 
         
     }
 
@@ -81,5 +84,19 @@ class Field extends Object{
         return board[i].isEmpty();
     }
     
-    //***************************************************************** */
+/***************************************************************** */
+/**
+ * returns a "String" with all field's information
+ */
+    toString(){
+        let r = "FIELD: \n" + "WIDTH " + this.widthCell + '\n' + "HEIGHT " + this.heightCell + '\n' + "ROWS " + this.nbLine + '\n' + "COLUMNS " + this.nbCol +'\n';
+
+        for (let i = 0; i < this.board.length; i++){
+            r += this.board[i] + '\n'
+        }
+        return r;
+    }
+
+
+
 }

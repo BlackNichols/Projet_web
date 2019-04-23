@@ -30,4 +30,15 @@ class Cell {
         return (!(isEmpty()) && this.traversable);
     }
 
+/*************************************************************/
+/**
+ * return a "string" with the cell's information
+ */
+
+    toString(){
+        return "CELL: \n" + "X " + this.x + '\n' + "Y " + this.y +  '\n' + 
+                    "VALUE " + this.value + '\n' + "TRAVERSABLE " +
+                    this.traversable + '\n' + "DOOR " + this.door;
+    }
+
 }
