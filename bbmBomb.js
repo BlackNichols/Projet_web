@@ -1,15 +1,19 @@
 "use strict"
 
 
-class Bomb extends Object{
+class Bomb extends gameObject{
 
     constructor(posx, posy, time, bombStrength){
-        super();
-        this.x = posx;
-        this.y = posy;
+        super(new Image().src = "bomb.png", posx, posy);
         this.ttl = time; // time to live
         this.strength = bombStrength;
         
+    }
+
+    draw = function(ctx){
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+        //need to implement sprites animmation
+        ctx.drawImage(this.image,this.x, this.y);
     }
 
     //*****************************************************************

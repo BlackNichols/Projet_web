@@ -9,6 +9,21 @@ function defined(x){
 
 class Field extends Object{
 
+    // constructor(widthCell,heightCell,nbRow,nbCol){
+        constructor(widthCell = 20,heightCell = 20,nbRow = 40,nbCol = 40){
+        super();
+
+        Object.defineProperty(this, "widthCell", {value : widthCell, writable : false});
+        Object.defineProperty(this, "heightCell", {value : heightCell, writable : false});
+        Object.defineProperty(this, "nbLine", {value : nbRow, writable : false});
+        Object.defineProperty(this, "nbCol", {value : nbCol, writable : false});
+        //Object.defineProperty(this, "cells", {value : defined(json_object.cells), writable : false});
+        this.board = [];
+
+        Object.seal(this);
+    }
+
+    
     // constructor(json_object){
     //     super();
 
@@ -21,24 +36,50 @@ class Field extends Object{
     //     Object.seal(this);
     // }
 
-    constructor(widthCell,heightCell,nbRow,nbCol){
-        super();
-
-        Object.defineProperty(this, "widthCell", {value : widthCell, writable : false});
-        Object.defineProperty(this, "heightCell", {value : heightCell, writable : false});
-        Object.defineProperty(this, "nbLine", {value : nbRow, writable : false});
-        Object.defineProperty(this, "nbCol", {value : nbCol, writable : false});
-        //Object.defineProperty(this, "cells", {value : defined(json_object.cells), writable : false});
-
-        Object.seal(this);
-    }
+    
+/***************************************************************** */
 
     createFile(filename,field){
         let content = JSON.stringify(field);
         
     }
 
+    
+/***************************************************************** */
+/**
+ * 
+ * @param {rowpixels to convert} x 
+ * @param {column pixels to convert} y 
+ * this function returns one position(that corresponds to one "CELL") 
+ * from two coordinates.
+ */
+    pixelToPos(x, y){
+        let posX = Number.NaN;
+        let posY = Number.NaN;
+        posX = Math.trunc(x/this.widthCell); 
+        posY = Math.trunc(y/this.heightCell);
+
+        let pos = (posX * this.nbLine) +  posY;
+
+        return pos;
+    }
+    
+    
+    //***************************************************************** */
+
+    /**
+     * 
+     * @param {row pixels} r 
+     * @param {column pixels} c 
+     * function that checks if the position r,c in the canvas is empty and the 
+     * creature can cross it.
+     * in the case there was a wall it can cross
+     * return true if its crossable and false otherside.
+     */
     checkPos(r,c){
-        return true; //TODO
-    } //true if the cell is crossable
+        let i = this.pixelToPos(r,c);
+        return board[i].isEmpty();
+    }
+    
+    //***************************************************************** */
 }

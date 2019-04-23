@@ -1,16 +1,17 @@
 "use strict"
 
 
-class Player extends Object{
+class Player extends gameObject{
 
    constructor(posx, posy, nbLives, plImage, gameField){
-       super();
-       this.x = posx;
-       this.y = posy;
+       super(plImage, posx, posy);
        this.field = gameField;
        this.move = 2;
        this.lives = nbLives;
-       this.image = plImage;
+   }
+
+   draw = function(ctx){
+    ctx.drawImage(this.image,this.x, this.y);
    }
 
 
